@@ -2,6 +2,7 @@
 
 import { useInView } from "@/hooks/use-in-view"
 import { ArrowRight, Sparkles } from "lucide-react"
+import Link from "next/link"
 
 export function CTASection() {
   const { ref, isInView } = useInView()
@@ -56,10 +57,13 @@ export function CTASection() {
                 isInView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
               }`}
             >
-              <button className="group flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-accent-foreground transition-all hover:shadow-xl hover:shadow-accent/20">
+              <Link
+                href="/app"
+                className="group flex items-center gap-2 rounded-lg bg-accent px-8 py-4 text-base font-semibold text-accent-foreground transition-all hover:shadow-xl hover:shadow-accent/20"
+              >
                 Connect Wallet
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </button>
+              </Link>
               <button className="rounded-lg border border-border bg-secondary/30 px-8 py-4 text-base font-medium text-foreground backdrop-blur-sm transition-all hover:bg-secondary/60">
                 Read Docs
               </button>
