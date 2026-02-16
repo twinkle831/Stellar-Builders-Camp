@@ -2,6 +2,7 @@
 
 import { useInView } from "@/hooks/use-in-view"
 import { Clock, Users, Zap, ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 const pools = [
   {
@@ -141,10 +142,13 @@ export function PrizePools() {
                 </div>
 
                 {/* CTA */}
-                <button className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-accent/10 py-3 text-sm font-semibold text-accent transition-all hover:bg-accent hover:text-accent-foreground">
+                <Link
+                  href="/app"
+                  className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-accent/10 py-3 text-sm font-semibold text-accent transition-all hover:bg-accent hover:text-accent-foreground"
+                >
                   Deposit Now
                   <ArrowRight className="h-4 w-4" />
-                </button>
+                </Link>
               </div>
             </div>
           ))}

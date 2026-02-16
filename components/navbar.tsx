@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
+import Link from "next/link"
 
 const navLinks = [
   { label: "Pools", href: "#pools" },
@@ -63,12 +64,18 @@ export function Navbar() {
 
         {/* CTA */}
         <div className="hidden items-center gap-3 md:flex">
-          <button className="rounded-lg border border-border px-4 py-2 text-sm text-foreground transition-all hover:bg-secondary">
+          <Link
+            href="/app"
+            className="rounded-lg border border-border px-4 py-2 text-sm text-foreground transition-all hover:bg-secondary"
+          >
             Connect Wallet
-          </button>
-          <button className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-all hover:opacity-90">
+          </Link>
+          <Link
+            href="/app"
+            className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-all hover:opacity-90"
+          >
             Launch App
-          </button>
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -95,9 +102,12 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <button className="mt-2 rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-accent-foreground">
+            <Link
+              href="/app"
+              className="mt-2 rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-accent-foreground text-center"
+            >
               Launch App
-            </button>
+            </Link>
           </div>
         </div>
       )}

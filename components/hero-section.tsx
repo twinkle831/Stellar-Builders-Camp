@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { ArrowRight, Shield } from "lucide-react"
 import { HeroGeometry } from "./hero-geometry"
+import Link from "next/link"
 
 export function HeroSection() {
   const [mounted, setMounted] = useState(false)
@@ -79,13 +80,19 @@ export function HeroSection() {
               mounted ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
             }`}
           >
-            <button className="group flex items-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold text-accent-foreground transition-all hover:shadow-lg hover:shadow-accent/20">
+            <Link
+              href="/app"
+              className="group flex items-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold text-accent-foreground transition-all hover:shadow-lg hover:shadow-accent/20"
+            >
               Enter Prize Pool
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
-            <button className="flex items-center gap-2 rounded-lg border border-border bg-secondary/30 px-6 py-3.5 text-sm font-medium text-foreground backdrop-blur-sm transition-all hover:bg-secondary/60">
+            </Link>
+            <a
+              href="#how-it-works"
+              className="flex items-center gap-2 rounded-lg border border-border bg-secondary/30 px-6 py-3.5 text-sm font-medium text-foreground backdrop-blur-sm transition-all hover:bg-secondary/60"
+            >
               How It Works
-            </button>
+            </a>
           </div>
 
           {/* Quick stats */}
