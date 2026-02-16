@@ -15,7 +15,12 @@ export interface DepositEntry {
 let deposits: DepositEntry[] = []
 let listeners: Array<() => void> = []
 
+// Cached snapshot: useSyncExternalStore requires referentially stable returns
+// when data has not changed. We update this only inside notify().
+let snapshot: DepositEntry[] = deposits
+
 function notify() {
+  snapshot = [...deposits]
   listeners.forEach((fn) => fn())
 }
 
@@ -27,7 +32,7 @@ export function subscribe(listener: () => void) {
 }
 
 export function getDeposits(): DepositEntry[] {
-  return [...deposits]
+  return snapshot
 }
 
 function generateTxHash(): string {
