@@ -5,7 +5,7 @@ import { Wallet, ChevronDown, LogOut, Copy, CheckCircle2 } from "lucide-react"
 import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
 
-type Tab = "pools" | "dashboard"
+type Tab = "pools" | "dashboard" | "draws"
 
 interface Props {
   onConnectWallet: () => void
@@ -13,16 +13,24 @@ interface Props {
   onTabChange: (tab: Tab) => void
 }
 
+const tabs: { key: Tab; label: string }[] = [
+  { key: "pools", label: "Pools" },
+  { key: "dashboard", label: "Dashboard" },
+  { key: "draws", label: "Draws" },
+]
+
 export function AppNavbar({ onConnectWallet, activeTab, onTabChange }: Props) {
   const { isConnected, address, balance, disconnect } = useWallet()
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [copied, setCopied] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  // Close dropdown on outside click
   useEffect(() => {
     function handleClick(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
         setDropdownOpen(false)
       }
     }
@@ -44,7 +52,11 @@ export function AppNavbar({ onConnectWallet, activeTab, onTabChange }: Props) {
         <Link href="/" className="flex items-center gap-2 group">
           <div className="relative h-8 w-8">
             <div className="absolute inset-0 rounded-lg bg-accent/20 group-hover:bg-accent/30 transition-colors" />
-            <svg viewBox="0 0 32 32" className="relative h-8 w-8" fill="none">
+            <svg
+              viewBox="0 0 32 32"
+              className="relative h-8 w-8"
+              fill="none"
+            >
               <path
                 d="M16 4L28 10V22L16 28L4 22V10L16 4Z"
                 className="stroke-accent"
@@ -61,26 +73,19 @@ export function AppNavbar({ onConnectWallet, activeTab, onTabChange }: Props) {
 
         {/* Tab navigation */}
         <div className="hidden items-center gap-1 rounded-lg bg-secondary/50 p-1 md:flex">
-          <button
-            onClick={() => onTabChange("pools")}
-            className={`rounded-md px-4 py-2 text-sm font-medium transition-all ${
-              activeTab === "pools"
-                ? "bg-card text-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            Pools
-          </button>
-          <button
-            onClick={() => onTabChange("dashboard")}
-            className={`rounded-md px-4 py-2 text-sm font-medium transition-all ${
-              activeTab === "dashboard"
-                ? "bg-card text-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground"
-            }`}
-          >
-            Dashboard
-          </button>
+          {tabs.map((t) => (
+            <button
+              key={t.key}
+              onClick={() => onTabChange(t.key)}
+              className={`rounded-md px-4 py-2 text-sm font-medium transition-all ${
+                activeTab === t.key
+                  ? "bg-card text-foreground shadow-sm"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
         </div>
 
         {/* Wallet */}
@@ -102,16 +107,21 @@ export function AppNavbar({ onConnectWallet, activeTab, onTabChange }: Props) {
                 />
               </button>
 
-              {/* Dropdown */}
               {dropdownOpen && (
                 <div className="absolute right-0 top-full mt-2 w-64 rounded-xl border border-border bg-card p-3 shadow-xl animate-slide-up">
                   <div className="mb-3 px-2">
-                    <p className="text-xs text-muted-foreground">Connected Wallet</p>
+                    <p className="text-xs text-muted-foreground">
+                      Connected Wallet
+                    </p>
                     <div className="flex items-center gap-2 mt-1">
                       <p className="font-mono text-xs text-foreground truncate">
                         {address}
                       </p>
-                      <button onClick={copyAddress} className="shrink-0" aria-label="Copy address">
+                      <button
+                        onClick={copyAddress}
+                        className="shrink-0"
+                        aria-label="Copy address"
+                      >
                         {copied ? (
                           <CheckCircle2 className="h-3.5 w-3.5 text-accent" />
                         ) : (
@@ -150,30 +160,6 @@ export function AppNavbar({ onConnectWallet, activeTab, onTabChange }: Props) {
           )}
         </div>
       </nav>
-
-      {/* Mobile tabs */}
-      <div className="flex items-center gap-1 border-t border-border px-6 py-2 md:hidden">
-        <button
-          onClick={() => onTabChange("pools")}
-          className={`flex-1 rounded-md py-2 text-center text-sm font-medium transition-all ${
-            activeTab === "pools"
-              ? "bg-secondary text-foreground"
-              : "text-muted-foreground"
-          }`}
-        >
-          Pools
-        </button>
-        <button
-          onClick={() => onTabChange("dashboard")}
-          className={`flex-1 rounded-md py-2 text-center text-sm font-medium transition-all ${
-            activeTab === "dashboard"
-              ? "bg-secondary text-foreground"
-              : "text-muted-foreground"
-          }`}
-        >
-          Dashboard
-        </button>
-      </div>
     </header>
   )
 }
