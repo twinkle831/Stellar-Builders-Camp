@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useWallet } from "@/frontend/context/wallet-context"
+import { useWallet } from "@/context/wallet-context"
 import { AppPoolCards } from "@/components/app-pool-cards"
 import { DepositModal } from "@/components/deposit-modal"
 import { WithdrawModal } from "@/components/withdraw-modal"
@@ -17,7 +17,7 @@ import {
   DashboardSkeleton,
   DrawsSkeleton,
 } from "@/components/skeletons"
-import { pools, type Pool } from "@/frontend/lib/pool-data"
+import { pools, type Pool } from "@/lib/pool-data"
 import { Wallet, ArrowRight, LayoutGrid, PieChart, Trophy } from "lucide-react"
 
 export type Tab = "pools" | "dashboard" | "draws"

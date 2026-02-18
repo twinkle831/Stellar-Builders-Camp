@@ -1,4 +1,4 @@
-import { WalletProvider } from "@/frontend/context/wallet-context"
+import { WalletProvider } from "@/context/wallet-context"
 
 export const metadata = {
   title: "LuckyStake App - Prize Pools & Dashboard",
