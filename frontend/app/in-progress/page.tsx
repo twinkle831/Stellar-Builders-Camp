@@ -91,9 +91,10 @@ export default function InProgressPage() {
               key={i}
               className="h-2 w-2 rounded-full bg-accent/60"
               style={{
-                animation: mounted
-                  ? `pulse 1.5s ease-in-out infinite`
-                  : "none",
+                animationName: mounted ? "pulse" : "none",
+                animationDuration: "1.5s",
+                animationTimingFunction: "ease-in-out",
+                animationIterationCount: "infinite",
                 animationDelay: `${i * 0.3}s`,
               }}
             />

@@ -9,6 +9,7 @@ const navLinks = [
   { label: "How It Works", href: "#how-it-works" },
   { label: "AI Agent", href: "#ai-agent" },
   { label: "Stats", href: "#stats" },
+  { label: "Winners", href: "/winners" },
 ]
 
 export function Navbar() {
@@ -71,7 +72,7 @@ export function Navbar() {
             Connect Wallet
           </Link>
           <Link
-            href="/app"
+            href="/in-progress"
             className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-all hover:opacity-90"
           >
             Launch App
@@ -103,7 +104,7 @@ export function Navbar() {
               </a>
             ))}
             <Link
-              href="/app"
+              href="/in-progress"
               className="mt-2 rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-accent-foreground text-center"
             >
               Launch App
