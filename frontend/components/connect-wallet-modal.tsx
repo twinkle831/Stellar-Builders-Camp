@@ -1,6 +1,6 @@
 "use client"
 
-import { useWallet } from "@/frontend/context/wallet-context"
+import { useWallet } from "@/context/wallet-context"
 import { X, Loader2, Wallet, CheckCircle2 } from "lucide-react"
 import { useEffect } from "react"
 

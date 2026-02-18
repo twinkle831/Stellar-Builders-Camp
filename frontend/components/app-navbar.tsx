@@ -1,6 +1,6 @@
 "use client"
 
-import { useWallet, truncateAddress } from "@/frontend/context/wallet-context"
+import { useWallet, truncateAddress } from "@/context/wallet-context"
 import { Wallet, ChevronDown, LogOut, Copy, CheckCircle2 } from "lucide-react"
 import { useState, useRef, useEffect } from "react"
 import Link from "next/link"

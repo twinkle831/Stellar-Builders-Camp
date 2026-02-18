@@ -1,7 +1,7 @@
 "use client"
 
 import { Wallet, Ticket, TrendingUp, Trophy } from "lucide-react"
-import { useInView } from "@/frontend/hooks/use-in-view"
+import { useInView } from "@/hooks/use-in-view"
 
 const steps = [
   {

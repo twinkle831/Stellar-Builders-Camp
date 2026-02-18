@@ -12,13 +12,13 @@ import {
   ArrowRight,
   BarChart3,
 } from "lucide-react"
-import { type Pool, formatCountdown } from "@/frontend/lib/pool-data"
+import { type Pool, formatCountdown } from "@/lib/pool-data"
 import {
   getDepositsByPool,
   subscribe,
   getDeposits,
   type DepositEntry,
-} from "@/frontend/lib/deposit-store"
+} from "@/lib/deposit-store"
 
 interface Props {
   pool: Pool | null

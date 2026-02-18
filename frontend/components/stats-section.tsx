@@ -1,7 +1,7 @@
 "use client"
 
-import { useInView } from "@/frontend/hooks/use-in-view"
-import { useCounter } from "@/frontend/hooks/use-counter"
+import { useInView } from "@/hooks/use-in-view"
+import { useCounter } from "@/hooks/use-counter"
 
 function StatItem({
   value,

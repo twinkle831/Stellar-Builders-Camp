@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { AlertTriangle, X, Wifi } from "lucide-react"
-import { useWallet } from "@/frontend/context/wallet-context"
+import { useWallet } from "@/context/wallet-context"
 
 export function NetworkBanner() {
   const { isConnected, network } = useWallet()

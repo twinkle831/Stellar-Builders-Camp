@@ -12,7 +12,7 @@ import {
   ChevronDown,
   Info,
 } from "lucide-react"
-import { type Pool, formatCountdown } from "@/frontend/lib/pool-data"
+import { type Pool, formatCountdown } from "@/lib/pool-data"
 
 type SortKey = "tvl" | "apy" | "drawTime" | "prize"
 

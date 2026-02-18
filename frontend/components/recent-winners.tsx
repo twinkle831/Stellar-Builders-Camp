@@ -1,6 +1,6 @@
 "use client"
 
-import { useInView } from "@/frontend/hooks/use-in-view"
+import { useInView } from "@/hooks/use-in-view"
 import { Trophy, ExternalLink } from "lucide-react"
 
 const winners = [

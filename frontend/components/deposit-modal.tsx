@@ -2,9 +2,9 @@
 
 import { useState, useMemo } from "react"
 import { X, Loader2, ArrowRight, Ticket, TrendingUp, Shield, AlertCircle } from "lucide-react"
-import { useWallet } from "@/frontend/context/wallet-context"
-import { type Pool, calcTickets, calcWinProbability } from "@/frontend/lib/pool-data"
-import { addDeposit } from "@/frontend/lib/deposit-store"
+import { useWallet } from "@/context/wallet-context"
+import { type Pool, calcTickets, calcWinProbability } from "@/lib/pool-data"
+import { addDeposit } from "@/lib/deposit-store"
 
 interface Props {
   pool: Pool | null

@@ -1,6 +1,6 @@
 "use client"
 
-import { useInView } from "@/frontend/hooks/use-in-view"
+import { useInView } from "@/hooks/use-in-view"
 import { Shield, Eye, Lock, FileCheck, Fingerprint, Globe } from "lucide-react"
 
 const features = [

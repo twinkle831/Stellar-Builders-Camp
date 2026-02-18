@@ -1,6 +1,6 @@
 "use client"
 
-import { useInView } from "@/frontend/hooks/use-in-view"
+import { useInView } from "@/hooks/use-in-view"
 import { ArrowRight, Sparkles } from "lucide-react"
 import Link from "next/link"
 

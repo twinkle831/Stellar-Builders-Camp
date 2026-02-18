@@ -1,6 +1,6 @@
 "use client"
 
-import { useInView } from "@/frontend/hooks/use-in-view"
+import { useInView } from "@/hooks/use-in-view"
 import { Bot, Sliders, BarChart3, RefreshCw, Zap, Shield } from "lucide-react"
 
 const features = [

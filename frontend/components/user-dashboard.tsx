@@ -17,7 +17,7 @@ import {
   Sparkles,
   Filter,
 } from "lucide-react"
-import { useWallet, truncateAddress } from "@/frontend/context/wallet-context"
+import { useWallet, truncateAddress } from "@/context/wallet-context"
 import {
   getDeposits,
   subscribe,
@@ -29,8 +29,8 @@ import {
   getPoolBalance,
   getAccruedInterest,
   type DepositEntry,
-} from "@/frontend/lib/deposit-store"
-import { pools, formatCountdown, type Pool } from "@/frontend/lib/pool-data"
+} from "@/lib/deposit-store"
+import { pools, formatCountdown, type Pool } from "@/lib/pool-data"
 
 function useDeposits() {
   return useSyncExternalStore(subscribe, getDeposits, getDeposits)

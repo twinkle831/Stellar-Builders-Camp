@@ -11,13 +11,13 @@ import {
   ChevronDown,
   Sparkles,
 } from "lucide-react"
-import { pools, formatCountdown } from "@/frontend/lib/pool-data"
+import { pools, formatCountdown } from "@/lib/pool-data"
 import {
   pastDraws,
   truncateAddr,
   formatDrawDate,
   type DrawResult,
-} from "@/frontend/lib/draw-data"
+} from "@/lib/draw-data"
 
 type FilterPool = "all" | "daily" | "weekly" | "monthly"
 

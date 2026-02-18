@@ -10,13 +10,13 @@ import {
   Banknote,
   Sparkles,
 } from "lucide-react"
-import { type Pool } from "@/frontend/lib/pool-data"
+import { type Pool } from "@/lib/pool-data"
 import {
   getPoolBalance,
   getAccruedInterest,
   addWithdrawal,
   addClaim,
-} from "@/frontend/lib/deposit-store"
+} from "@/lib/deposit-store"
 
 interface Props {
   pool: Pool | null
