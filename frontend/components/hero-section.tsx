@@ -37,7 +37,7 @@ export function HeroSection() {
             }`}
           >
             <Shield className="h-3.5 w-3.5 text-accent" />
-            <span>Powered by Stellar &middot; Soroban Smart Contracts</span>
+            <span>Powered by Stellar Network</span>
           </div>
 
           {/* Subtitle */}
@@ -81,10 +81,10 @@ export function HeroSection() {
             }`}
           >
             <Link
-              href="/app"
+              href="/in-progress"
               className="group flex items-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold text-accent-foreground transition-all hover:shadow-lg hover:shadow-accent/20"
             >
-              Enter Prize Pool
+              Launch App
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <a

@@ -40,7 +40,7 @@ export function RecentWinners() {
   const { ref, isInView } = useInView()
 
   return (
-    <section className="relative bg-background py-24 lg:py-32" ref={ref}>
+    <section id="recent-winners" className="relative bg-background py-24 lg:py-32" ref={ref}>
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-12 text-center">
           <p
@@ -104,9 +104,9 @@ export function RecentWinners() {
         </div>
 
         <div className="mt-6 text-center">
-          <button className="text-sm text-accent transition-colors hover:text-accent/80">
-            View all draw history on Stellar Explorer
-          </button>
+          <a href="/winners" className="text-sm text-accent transition-colors hover:text-accent/80">
+            View all winners and draw history →
+          </a>
         </div>
       </div>
     </section>

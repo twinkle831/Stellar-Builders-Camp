@@ -1,49 +1,48 @@
 "use client"
 
 import { useInView } from "@/hooks/use-in-view"
-import { Bot, Sliders, BarChart3, RefreshCw, Zap, Shield } from "lucide-react"
+import { Bot, MessageCircle, Zap, BarChart3 } from "lucide-react"
+import { useState } from "react"
 
 const features = [
   {
-    icon: Sliders,
-    title: "Configure Strategy",
+    icon: MessageCircle,
+    title: "Chat with AI",
     description:
-      "Set investment amount, duration, pool eligibility, and optimization mode in one click.",
+      "Ask questions about strategies, pool performance, and get personalized recommendations in real-time.",
   },
-  {
-    icon: BarChart3,
-    title: "Smart Allocation",
-    description:
-      "AI calculates optimal daily allocation across pools based on real-time odds and APY data.",
-  },
-  {
-    icon: RefreshCw,
-    title: "Auto-Reinvest",
-    description:
-      "Winnings automatically route back to your strategy for compounding returns.",
-  },
-]
-
-const modes = [
   {
     icon: Zap,
-    name: "Max Win Chances",
-    desc: "Spread across smaller pools",
+    title: "Smart Insights",
+    description:
+      "Get AI-powered analysis of pools, odds, and optimal times to enter or withdraw.",
   },
   {
     icon: BarChart3,
-    name: "Max Prize Amount",
-    desc: "Concentrate in monthly pool",
-  },
-  {
-    icon: Shield,
-    name: "Balanced Mode",
-    desc: "AI-optimized expected value",
+    title: "Live Data",
+    description:
+      "Real-time pool statistics, draw countdowns, and performance metrics at your fingertips.",
   },
 ]
 
 export function AIAgentSection() {
   const { ref, isInView } = useInView()
+  const [messages, setMessages] = useState<Array<{ role: string; text: string }>>([
+    { role: "assistant", text: "Hi! I'm your AI assistant. Ask me about pools, strategies, or draw odds." },
+  ])
+  const [input, setInput] = useState("")
+
+  const handleSendMessage = () => {
+    if (!input.trim()) return
+    setMessages([...messages, { role: "user", text: input }])
+    setTimeout(() => {
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", text: "The weekly pool has 2.4% APY and 1 draw per week. Would you like more details?" },
+      ])
+    }, 500)
+    setInput("")
+  }
 
   return (
     <section id="ai-agent" className="relative overflow-hidden bg-background py-24 lg:py-32" ref={ref}>
@@ -67,7 +66,7 @@ export function AIAgentSection() {
               }`}
             >
               <Bot className="h-4 w-4" />
-              AI-Powered Automation
+              AI Assistant
             </div>
 
             <h2
@@ -76,11 +75,11 @@ export function AIAgentSection() {
               }`}
             >
               <span className="text-balance">
-                Set It.
+                Ask Your AI
                 <br />
-                Forget It.
+                Lottery
                 <br />
-                <span className="text-accent">Win It.</span>
+                <span className="text-accent">Expert</span>
               </span>
             </h2>
 
@@ -89,9 +88,8 @@ export function AIAgentSection() {
                 isInView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
               }`}
             >
-              Let our AI agent manage your lottery strategy. It monitors pool stats,
-              calculates optimal allocation, and executes entries daily - all from
-              a secure escrow contract.
+              Get instant answers about pool performance, strategies, odds, and everything
+              else you need to make informed lottery decisions.
             </p>
 
             {/* Feature list */}
@@ -116,88 +114,62 @@ export function AIAgentSection() {
             </div>
           </div>
 
-          {/* Right - Strategy Card Mock */}
+          {/* Right - Chatbot */}
           <div
             className={`transition-all duration-1000 delay-300 ${
               isInView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
             }`}
           >
-            <div className="rounded-2xl border border-border bg-card/50 p-6 backdrop-blur-sm lg:p-8">
-              <div className="flex items-center justify-between">
+            <div className="rounded-2xl border border-border bg-card/50 p-6 backdrop-blur-sm lg:p-8 flex flex-col h-96">
+              {/* Chat header */}
+              <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10">
                     <Bot className="h-5 w-5 text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-display font-bold text-foreground">AI Strategy</h3>
-                    <p className="text-xs text-muted-foreground">Active &middot; Day 12 of 30</p>
+                    <h3 className="font-display font-bold text-foreground">AI Assistant</h3>
+                    <p className="text-xs text-accent">Online</p>
                   </div>
                 </div>
-                <div className="rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
-                  Running
-                </div>
               </div>
 
-              {/* Progress bar */}
-              <div className="mt-6">
-                <div className="flex justify-between text-xs text-muted-foreground">
-                  <span>Progress</span>
-                  <span>40%</span>
-                </div>
-                <div className="mt-2 h-2 overflow-hidden rounded-full bg-secondary">
+              {/* Messages */}
+              <div className="flex-1 overflow-y-auto space-y-4 mb-4">
+                {messages.map((msg, index) => (
                   <div
-                    className="h-full rounded-full bg-accent transition-all duration-1000"
-                    style={{ width: isInView ? "40%" : "0%" }}
-                  />
-                </div>
-              </div>
-
-              {/* Mock stats */}
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                <div className="rounded-xl bg-secondary/50 p-4">
-                  <p className="text-xs text-muted-foreground">Invested</p>
-                  <p className="font-display text-lg font-bold text-foreground">$2,000</p>
-                </div>
-                <div className="rounded-xl bg-secondary/50 p-4">
-                  <p className="text-xs text-muted-foreground">Tickets Earned</p>
-                  <p className="font-display text-lg font-bold text-foreground">24,000</p>
-                </div>
-                <div className="rounded-xl bg-secondary/50 p-4">
-                  <p className="text-xs text-muted-foreground">Entries Made</p>
-                  <p className="font-display text-lg font-bold text-foreground">12</p>
-                </div>
-                <div className="rounded-xl bg-secondary/50 p-4">
-                  <p className="text-xs text-muted-foreground">Wins</p>
-                  <p className="font-display text-lg font-bold text-accent">1</p>
-                </div>
-              </div>
-
-              {/* Optimization modes */}
-              <div className="mt-6">
-                <p className="mb-3 text-xs font-medium uppercase tracking-wider text-muted-foreground">Optimization Mode</p>
-                <div className="flex flex-col gap-2">
-                  {modes.map((mode, i) => (
+                    key={index}
+                    className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+                  >
                     <div
-                      key={mode.name}
-                      className={`flex items-center gap-3 rounded-lg border p-3 transition-colors ${
-                        i === 2
-                          ? "border-accent/30 bg-accent/5"
-                          : "border-border bg-secondary/30"
+                      className={`max-w-xs px-4 py-2 rounded-lg text-sm ${
+                        msg.role === "user"
+                          ? "bg-accent text-accent-foreground"
+                          : "bg-secondary/50 text-foreground"
                       }`}
                     >
-                      <mode.icon className={`h-4 w-4 ${i === 2 ? "text-accent" : "text-muted-foreground"}`} />
-                      <div>
-                        <p className={`text-sm font-medium ${i === 2 ? "text-foreground" : "text-muted-foreground"}`}>
-                          {mode.name}
-                        </p>
-                        <p className="text-xs text-muted-foreground">{mode.desc}</p>
-                      </div>
-                      {i === 2 && (
-                        <div className="ml-auto h-2 w-2 rounded-full bg-accent" />
-                      )}
+                      {msg.text}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Input */}
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+                  placeholder="Ask about pools..."
+                  className="flex-1 rounded-lg bg-secondary/30 px-3 py-2 text-sm border border-border focus:outline-none focus:border-accent"
+                />
+                <button
+                  onClick={handleSendMessage}
+                  className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:opacity-90 transition-opacity"
+                >
+                  Send
+                </button>
               </div>
             </div>
           </div>
