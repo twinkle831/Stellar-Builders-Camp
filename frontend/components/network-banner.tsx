@@ -11,7 +11,7 @@ export function NetworkBanner() {
   // Show banner when connected to testnet
   const isTestnet = network === "Stellar Testnet"
 
-  if (!isConnected || dismissed) return null
+  if (!isConnected || dismissed || isTestnet) return null
 
   return (
     <div

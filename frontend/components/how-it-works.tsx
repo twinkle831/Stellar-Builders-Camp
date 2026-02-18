@@ -14,9 +14,9 @@ const steps = [
   {
     icon: Ticket,
     step: "02",
-    title: "Earn Tickets",
+    title: "Select Your Pool",
     description:
-      "Receive 1 ticket per $1 per day. The longer you stay, the more tickets you accumulate and the better your odds become.",
+      "Choose between Weekly and Monthly pools based on your strategy. Each pool has different odds and prize amounts.",
   },
   {
     icon: TrendingUp,
