@@ -19,7 +19,7 @@ import {
   type DrawResult,
 } from "@/lib/draw-data"
 
-type FilterPool = "all" | "daily" | "weekly" | "monthly"
+type FilterPool = "all" | "weekly" | "biweekly" | "monthly"
 
 export function DrawsSection() {
   const [filter, setFilter] = useState<FilterPool>("all")
@@ -113,7 +113,7 @@ export function DrawsSection() {
 
           {/* Filter */}
           <div className="flex items-center gap-1 rounded-lg bg-secondary/50 p-1">
-            {(["all", "daily", "weekly", "monthly"] as FilterPool[]).map(
+            {(["all", "weekly", "biweekly", "monthly"] as FilterPool[]).map(
               (key) => (
                 <button
                   key={key}

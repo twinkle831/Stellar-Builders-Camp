@@ -23,23 +23,6 @@ function futureDate(hours: number): Date {
 
 export const pools: Pool[] = [
   {
-    id: "daily",
-    name: "Daily Pool",
-    frequency: "Every 24 Hours",
-    prize: 1240,
-    prizeFormatted: "$1,240",
-    tvl: "$420K",
-    participants: 2341,
-    participantsFormatted: "2,341",
-    apy: "4.8%",
-    drawTime: futureDate(14.5),
-    minDeposit: 10,
-    ticketRatio: "1 ticket per $1 per day",
-    color: "from-emerald-500/20 to-emerald-500/5",
-    borderColor: "hover:border-emerald-500/40",
-    featured: false,
-  },
-  {
     id: "weekly",
     name: "Weekly Pool",
     frequency: "Every 7 Days",
@@ -55,6 +38,23 @@ export const pools: Pool[] = [
     color: "from-accent/30 to-accent/5",
     borderColor: "hover:border-accent/50",
     featured: true,
+  },
+  {
+    id: "biweekly",
+    name: "Biweekly Pool",
+    frequency: "Every 15 Days",
+    prize: 18500,
+    prizeFormatted: "$18,500",
+    tvl: "$2.1M",
+    participants: 7120,
+    participantsFormatted: "7,120",
+    apy: "5.4%",
+    drawTime: futureDate(260),
+    minDeposit: 75,
+    ticketRatio: "1 ticket per $1 per day",
+    color: "from-emerald-500/20 to-emerald-500/5",
+    borderColor: "hover:border-emerald-500/40",
+    featured: false,
   },
   {
     id: "monthly",
@@ -77,8 +77,8 @@ export const pools: Pool[] = [
 
 export function calcTickets(amount: number, poolId: string): number {
   const multipliers: Record<string, number> = {
-    daily: 1,
     weekly: 7,
+    biweekly: 15,
     monthly: 30,
   }
   return amount * (multipliers[poolId] ?? 1)

@@ -12,7 +12,7 @@ const winners = [
   },
   {
     address: "GBZX7H...Q9RE",
-    pool: "Daily",
+    pool: "Biweekly",
     prize: "$1,180",
     date: "8 hours ago",
   },
@@ -24,7 +24,7 @@ const winners = [
   },
   {
     address: "GANX8T...J5NK",
-    pool: "Daily",
+    pool: "Biweekly",
     prize: "$1,340",
     date: "3 days ago",
   },

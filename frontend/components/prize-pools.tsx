@@ -6,18 +6,6 @@ import Link from "next/link"
 
 const pools = [
   {
-    name: "Daily Pool",
-    frequency: "Every 24 Hours",
-    prize: "$1,240",
-    tvl: "$420K",
-    participants: "2,341",
-    apy: "4.8%",
-    timeLeft: "14h 32m",
-    color: "from-emerald-500/20 to-emerald-500/5",
-    borderColor: "hover:border-emerald-500/40",
-    featured: false,
-  },
-  {
     name: "Weekly Pool",
     frequency: "Every 7 Days",
     prize: "$8,920",
@@ -28,6 +16,18 @@ const pools = [
     color: "from-accent/30 to-accent/5",
     borderColor: "hover:border-accent/50",
     featured: true,
+  },
+  {
+    name: "Biweekly Pool",
+    frequency: "Every 15 Days",
+    prize: "$18,500",
+    tvl: "$2.1M",
+    participants: "7,120",
+    apy: "5.4%",
+    timeLeft: "10d 20h",
+    color: "from-emerald-500/20 to-emerald-500/5",
+    borderColor: "hover:border-emerald-500/40",
+    featured: false,
   },
   {
     name: "Monthly Pool",

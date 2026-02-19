@@ -36,8 +36,8 @@ function randomTxHash(): string {
 export const pastDraws: DrawResult[] = [
   {
     id: "draw-1",
-    poolName: "Daily Pool",
-    poolId: "daily",
+    poolName: "Biweekly Pool",
+    poolId: "biweekly",
     drawDate: pastDate(1),
     prizeAmount: 1180,
     prizeFormatted: "$1,180",
@@ -50,8 +50,8 @@ export const pastDraws: DrawResult[] = [
   },
   {
     id: "draw-2",
-    poolName: "Daily Pool",
-    poolId: "daily",
+    poolName: "Biweekly Pool",
+    poolId: "biweekly",
     drawDate: pastDate(2),
     prizeAmount: 1095,
     prizeFormatted: "$1,095",
@@ -78,8 +78,8 @@ export const pastDraws: DrawResult[] = [
   },
   {
     id: "draw-4",
-    poolName: "Daily Pool",
-    poolId: "daily",
+    poolName: "Biweekly Pool",
+    poolId: "biweekly",
     drawDate: pastDate(3),
     prizeAmount: 1210,
     prizeFormatted: "$1,210",
@@ -120,8 +120,8 @@ export const pastDraws: DrawResult[] = [
   },
   {
     id: "draw-7",
-    poolName: "Daily Pool",
-    poolId: "daily",
+    poolName: "Biweekly Pool",
+    poolId: "biweekly",
     drawDate: pastDate(4),
     prizeAmount: 1050,
     prizeFormatted: "$1,050",
@@ -134,8 +134,8 @@ export const pastDraws: DrawResult[] = [
   },
   {
     id: "draw-8",
-    poolName: "Daily Pool",
-    poolId: "daily",
+    poolName: "Biweekly Pool",
+    poolId: "biweekly",
     drawDate: pastDate(5),
     prizeAmount: 1130,
     prizeFormatted: "$1,130",
