@@ -1,0 +1,12 @@
+[33m101e8ae[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m added backend
+[33md821238[m added smart contract for different pools
+[33m222cf65[m added public directory
+[33m8eaf5f2[m minor frontend changes
+[33mfd3a69b[m Merge branch 'main' of https://github.com/twinkle831/Stellar-Builders-Camp
+[33m07ccd0c[m feat: smart contracts for general-store, prize-pool, deposit
+[33ma7ebc38[m resolved errors 2
+[33m3622c68[m resolved import error
+[33m7d7b754[m updated folder structure for contracts
+[33md942680[m added pool selection and  dashboard
+[33mb4db072[m added wallet connection
+[33m6264ace[m added landing page
